@@ -1,3 +1,4 @@
+
 import {Pool} from 'pg'
 
 let conn: any
@@ -10,6 +11,7 @@ if (!conn) {
         port: 5432,
         database: process.env.POSTGRES_DATABASE
     })
+ 
 }
 
 export default conn

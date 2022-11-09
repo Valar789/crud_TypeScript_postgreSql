@@ -6,19 +6,16 @@ import { FaEdit } from "react-icons/fa";
 import Header from "components/Header";
 import { Task } from "interfaces/Task";
 import Link from "next/link";
- 
 
-const listTask:any[] = [];
-const initialItem:any = {};
-const initialTask:any = { title: "", description: "" }
+const listTask: any[] = [];
+const initialItem: any = {};
+const initialTask: any = { title: "", description: "" };
 
 export default function Index() {
-
-
-  const clearForm =()=>{
-    const form = document.querySelectorAll('form')
-    form.forEach(form=>form.reset())
-   }
+  const clearForm = () => {
+    const form = document.querySelectorAll("form");
+    form.forEach((form) => form.reset());
+  };
 
   const [data, setdata] = useState(listTask);
   const [updateActive, setUpdateActive] = useState(false);
@@ -26,7 +23,7 @@ export default function Index() {
   const [task, setTask] = useState(initialTask);
 
   const traeData = async () => {
-    const data = await getData();   
+    const data = await getData();
     setdata(data);
   };
 
@@ -41,10 +38,6 @@ export default function Index() {
       ...task,
       [name]: value,
     });
-  };
-  const activeUpdate = (obj: any) => {
-    setUpdateActive(true);
-    setItem(obj);
   };
 
   const createTask = async (task: Task) => {
@@ -65,8 +58,6 @@ export default function Index() {
     traeData();
   };
 
- 
-
   const sumbitHandlerPOST = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
@@ -79,15 +70,19 @@ export default function Index() {
     }
   };
 
+  const activeUpdate = (obj: any) => {
+    setUpdateActive(true);
+    setItem(obj);
+  };
+
   const sumbitHandlerUpdate = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       await handleUpdate(item.id, task);
       traeData();
-
       alert("Tarea actualizda exitosamente");
     } catch (error) {
-      alert("ha ocurrido un error");
+      alert("ha ocurrido un error recuerda seleccionar tarea");
     }
   };
 
@@ -99,7 +94,7 @@ export default function Index() {
         <div className="sm:col-span-8 shadow-xl p-4 rounded-xl text-white bg-black/50 w-full h-full">
           <h3 className="text-center text-xl my-4">Tareas por hacer</h3>
           {data.length === 0 ? (
-            <h3>No has creado tareas</h3>
+            <h3 className="text-center">No tienes tareas pendientes...</h3>
           ) : (
             data.map((obj) => (
               <div className="m-2  " key={obj.id}>
@@ -136,7 +131,7 @@ export default function Index() {
               href="#!"
               onClick={() => {
                 setUpdateActive(false);
-                setItem({})
+                setItem({});
               }}
               className="bg-blue-500/25 w-full text-center rounded-t-md p-2 "
             >
@@ -145,8 +140,8 @@ export default function Index() {
             <a
               href="#!"
               onClick={() => {
-                setUpdateActive(true)
-                clearForm()
+                setUpdateActive(true);
+                clearForm();
               }}
               className="bg-teal-800 w-full text-center rounded-t-md p-2"
             >
@@ -154,12 +149,11 @@ export default function Index() {
             </a>
           </div>
           {updateActive === false ? (
-                        // form POST
+            // form POST
             <form
               id="form"
               onSubmit={sumbitHandlerPOST}
               className="w-full p-3 rounded-b-md flex flex-col gap-4 bg-blue-500/25"
-        
             >
               <div>
                 <input
@@ -185,11 +179,10 @@ export default function Index() {
               </div>
             </form>
           ) : (
-
             // form UPDATE
 
             <form
-            id="form"
+              id="form"
               onSubmit={sumbitHandlerUpdate}
               className="w-full p-3 rounded-b-md flex flex-col gap-4 bg-teal-800"
             >
@@ -208,14 +201,12 @@ export default function Index() {
               </div>
               <div>
                 <textarea
-               
                   placeholder={
                     item.description && item.description !== ""
                       ? item.description
                       : "Ingrese una Descripcion"
                   }
                   name="description"
-  
                   onChange={captureValue}
                   className="p-2 w-full rounded-md text-gray-800"
                 />
