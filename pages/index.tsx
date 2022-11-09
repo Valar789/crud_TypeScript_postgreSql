@@ -26,7 +26,7 @@ export default function Index() {
   const [task, setTask] = useState(initialTask);
 
   const traeData = async () => {
-    const data = await getData();
+    const data = await getData();   
     setdata(data);
   };
 
