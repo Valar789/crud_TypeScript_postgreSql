@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+
+[![previa.png](https://i.postimg.cc/fb9TkDtV/previa.png)](https://postimg.cc/8FTV08bG)
+
 ## Getting Started
 
 First, run the development server:
@@ -7,7 +10,6 @@ First, run the development server:
 ```bash
 Require archivo varibles de entorno (.env) para la conexion 
 
-[![previa.png](https://i.postimg.cc/fb9TkDtV/previa.png)](https://postimg.cc/8FTV08bG)
 
 npm run dev
 # or
