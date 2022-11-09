@@ -4,11 +4,11 @@ let conn: any
 
 if (!conn) {
     conn = new Pool({
-        user: 'postgres',
-        password:'123456',
+        user: process.env.USER,
+        password: process.env.PASSWORD,
         host: 'localhost',
-        port: 5432,
-        database: 'taskdb'
+        port: 5432, //puerto predeterminado para POSTGRES
+        database: process.env.DATABASE
     })
 }
 
