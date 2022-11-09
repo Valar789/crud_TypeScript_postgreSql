@@ -7,8 +7,7 @@ First, run the development server:
 ```bash
 Require archivo varibles de entorno (.env) para la conexion 
 
-
-https://raw.github.com/Valar789/crud_typescript_postgres/blob/main/public/previa.png
+[![previa.png](https://i.postimg.cc/fb9TkDtV/previa.png)](https://postimg.cc/8FTV08bG)
 
 npm run dev
 # or
